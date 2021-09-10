@@ -1,16 +1,13 @@
-import React from 'react'
 import cs from 'classnames'
 import format from 'date-fns/format'
-
+import React from 'react'
 import formatNumber from '../../../format-number'
-import useMounted from '../../../use-mounted'
+
 
 export default function TweetInfo({ tweet, className = undefined }) {
-  const mounted = useMounted()
   const likeUrl = `https://twitter.com/intent/like?tweet_id=${tweet.id}`
   const tweetUrl = `https://twitter.com/${tweet.username}/status/${tweet.id}`
-  const createdAt =
-    typeof window !== 'undefined' && mounted ? new Date(tweet.createdAt) : null
+  const createdAt = new Date(tweet.createdAt) ;
 
   return (
     <div className={cs('static-tweet-info', className)}>
@@ -35,21 +32,21 @@ export default function TweetInfo({ tweet, className = undefined }) {
         )}
       </a>
 
-      {createdAt && (
+    
         <a
-          className='static-tweet-time'
+          className={cs('static-tweet-time', !!createdAt && 'static-tweet-time--hidden')}
           href={tweetUrl}
           target='_blank'
           rel='noopener noreferrer'
+
         >
           <time
-            title={`Time Posted: ${createdAt.toUTCString()}`}
-            dateTime={createdAt.toISOString()}
+            title={`Time Posted: ${createdAt ? createdAt.toUTCString() : ""}`}
+            dateTime={createdAt ? createdAt.toISOString() : ""}
           >
             {format(createdAt, 'h:mm a - MMM d, y')}
           </time>
         </a>
-      )}
     </div>
   )
 }

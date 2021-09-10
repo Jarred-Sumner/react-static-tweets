@@ -11,9 +11,6 @@ export const Img = ({ width, height, src, ...p }) => {
     <details className='static-tweet-details'>
       <summary
         className='static-tweet-summary'
-        style={{
-          paddingBottom: `${(height / width) * 100 || 0}%`
-        }}
       >
         <a
           href={tweetUrl}
@@ -27,6 +24,8 @@ export const Img = ({ width, height, src, ...p }) => {
             layout='fill'
             objectFit='cover'
             quality={80}
+            width={width === height ? "100%" : (width > height ? "100%" : "auto")}
+            height={height === width ? "100%" : (height > width ? "100%" : "auto")}
           />
         </a>
       </summary>
