@@ -1,7 +1,7 @@
 {
   "name": "react-static-tweets",
   "private": true,
-  "description": "Extremely fast static renderer for tweets.",
+  "description": "Static renderer for tweets.",
   "repository": "transitive-bullshit/react-static-tweets",
   "author": "Travis Fischer <travis@transitivebullsh.it>",
   "license": "MIT",
