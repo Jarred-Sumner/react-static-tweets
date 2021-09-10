@@ -20,12 +20,18 @@ export const Img = ({ width, height, src, ...p }) => {
         >
           <Image
             {...p}
-            src={`${src}&name=small`}
+            src={`${src}&name=large`}
             layout='fill'
             objectFit='cover'
             quality={80}
-            width={width === height ? "100%" : (width > height ? "100%" : "auto")}
-            height={height === width ? "100%" : (height > width ? "100%" : "auto")}
+            style={{
+              width: width === height ? "100%" : (width > height ? width : "auto"),
+              height: height === width ? "100%" : (height > width ? height : "auto"),
+              maxHeight: "100%",
+              maxWidth: "100%",
+            }}
+            width={width}
+            height={height}
           />
         </a>
       </summary>
