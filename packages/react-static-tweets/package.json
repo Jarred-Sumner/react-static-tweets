@@ -1,6 +1,6 @@
 {
   "name": "@jarred/react-static-tweets",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "description": "fast static renderer for tweets.",
   "repository": "transitive-bullshit/react-static-tweets",
   "author": "Travis Fischer <travis@transitivebullsh.it>",
